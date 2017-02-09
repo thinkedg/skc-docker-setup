@@ -12,3 +12,5 @@
     - install_docker
     - install_docker-compose
     - install_ansible
+    - { role: verify_setup, tags: [verify] }
+

@@ -9,3 +9,5 @@ ping:
 install:
 	ansible-playbook install.yml
 
+verify:
+	ansible-playbook install.yml -t verify
