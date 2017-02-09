@@ -33,7 +33,7 @@ Setup a Base Ubuntu System to run Docker Containers
   * Add your host(s)
 	  * edit hosts.cfg
   * Test your setup
-	  *
+	  
 
             make ping
                     ansible aws -m ping
