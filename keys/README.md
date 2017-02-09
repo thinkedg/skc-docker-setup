@@ -2,4 +2,5 @@
 
 * Setup aws key
     * `touch aws_key.pem`
-	* edit and add your aws key to access your ec2 instance
+	* edit aws_key.pem
+		* add your private aws key
