@@ -24,7 +24,7 @@ Setup a Base Ubuntu System to run Docker Containers
             			config file = /etc/ansible/ansible.cfg
             			configured module search path = Default w/o overrides
   
-  * Pull the  setupn code
+  * Pull the  setup code
       * `git clone https://github.com/thinkedg/skc-docker-setup.git`
   * Add your aws ssh key
 	  * [add key](https://github.com/thinkedg/skc-docker-setup/tree/master/keys)
