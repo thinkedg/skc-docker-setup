@@ -1,0 +1,24 @@
+---
+# tasks file for roles/install_ansible
+
+- name: test from install_ansible
+  debug: msg="testing the install_ansible role"
+
+- name: setup the software-properties-common
+  apt:
+    name=software-properties-common
+    state=present
+    update_cache=yes
+
+- name: add the ansible repositroy
+  apt_repository:
+    repo='ppa:ansible/ansible'
+
+- name: update the repository
+  apt:
+    update_cache=yes
+
+- name: install ansible
+  apt:
+    name=ansible
+    state=latest

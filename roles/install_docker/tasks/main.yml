@@ -1,0 +1,62 @@
+---
+# tasks file for roles/install_docker
+
+- name: test the install_docker
+  debug: msg='testing the install_docker role'
+  
+- name: do the apt-get update ONE
+  apt: update_cache=yes
+
+- name: do the apt-get >>UPGRADE<<
+  apt: upgrade=dist
+
+- name: install the apt-transport-https
+  apt:
+    name=apt-transport-https
+    state=latest
+
+- name: install ca-certificates
+  apt:
+    name=ca-certificates
+    state=latest
+
+- name: Add the new GPG key
+  apt_key:
+    keyserver=hkp://ha.pool.sks-keyservers.net:80
+    id=58118E89F3A912897C070ADBF76221572C52609D
+
+- name: copy the docker-16.04.list
+  copy:
+    src=docker-16.04.list
+    dest=/etc/apt/sources.list.d/docker.list
+    owner=root group=root mode=644
+
+- name: do the apt-get update number TW0
+  apt: update_cache=yes
+
+- name: Purge the old repo if it exists
+  command: 'apt-get purge lxc-docker'
+
+- name: Verify teh APT is pulling from the correct repositroy
+  command: 'apt-cache policy docker-engine'
+  register: policy_return
+
+- name: print the repository return
+  debug: msg="{{ policy_return.stdout }}"
+
+- name: install docker
+  apt:
+    name=docker-engine
+    state=latest
+
+- name: have docker start at boot
+  command: 'systemctl enable docker'
+
+- name: add ubuntu to the docker group
+  shell: adduser ubuntu docker
+
+- name: make sure that make is installed
+  apt:
+    name=make
+    state=latest
+    

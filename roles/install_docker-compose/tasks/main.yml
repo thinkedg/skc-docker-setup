@@ -1,0 +1,19 @@
+---
+# tasks file for roles/install_docker-compose
+
+- name: test from install_docker-compose
+  debug: msg='testing from the install_docker-compose role'
+
+- name: install docker compose
+  shell: 'curl -L https://github.com/docker/compose/releases/download/1.10.0/run.sh > /usr/local/bin/docker-compose'
+
+- name: set permissions on docker compose
+  shell: 'chmod 755 /usr/local/bin/docker-compose'
+
+
+- name: check the version of docker-compose
+  shell: 'docker-compose -version'
+  register: dcversion
+
+- name: display the docker-compose version
+  debug: msg="{{ dcversion.stdout }}"

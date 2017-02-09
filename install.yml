@@ -1,0 +1,14 @@
+---
+
+- hosts: aws
+
+  pre_tasks:
+
+    - name: this is a test
+      debug: msg='test'
+
+  roles:
+
+    - install_docker
+    - install_docker-compose
+    - install_ansible
