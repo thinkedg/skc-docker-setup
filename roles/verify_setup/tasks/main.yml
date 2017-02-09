@@ -1,0 +1,29 @@
+---
+# tasks file for roles/verify_setup
+
+
+- name: testing verify_setup
+  debug: msg='running the verify_setup role'
+
+- name: checking the ansible version
+  shell: 'ansible --version'
+  register: ansible_ver
+
+- name: display the ansible version
+  debug: var=ansible_ver.stdout
+
+- name: checking if docker is running
+  shell: 'docker info'
+  register: docker_info
+
+- name: display the docker info
+  debug: var=docker_info.stdout
+
+
+- name: checking if docker compose is working
+  shell: 'docker-compose --version'
+  register: docker_compose_vesion
+
+- name: display the docker compose version
+  debug: var=docker_compose_vesion.stdout
+  
