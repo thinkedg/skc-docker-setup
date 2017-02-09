@@ -17,7 +17,7 @@ Setup a Base Ubuntu System to run Docker Containers
   * This code is for a Ubuntu system 
   * Ansible needs to be installed on your dev system
 	  * [Install Ansible](http://docs.ansible.com/ansible/intro_installation.html#latest-releases-via-apt-ubuntu)
-	  *
+	  
 
             edg@edg-base:~$ ansible --version
             		ansible 2.2.1.0
