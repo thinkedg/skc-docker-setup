@@ -29,6 +29,9 @@ Setup a Base Ubuntu System to run Docker Containers
   * Add your aws ssh key
 	  * [add key](https://github.com/thinkedg/skc-docker-setup/tree/master/keys)
 	  * this README.md is in the keys directory
+	  
+  * Add your host(s)
+	  * edit hosts.cfg
   * Test your setup
 	  *
 
@@ -41,5 +44,10 @@ Setup a Base Ubuntu System to run Docker Containers
 
   * Setup docker on the instance(s)
 	  * ` make install`
+	  
+  * Verifying the setup
+	  * the verify role is run durning the install
+	  * to run verify role independently
+		  * `make verify`
 	  
 	  
